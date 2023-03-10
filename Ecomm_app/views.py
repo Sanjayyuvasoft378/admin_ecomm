@@ -1,11 +1,13 @@
 from django.shortcuts import render, redirect
 from .serializers import *
+# from admin_app.serializers import ProductSerializer
 from django.views import View
 from rest_framework import status
 from .models import *
 from rest_framework.views import APIView
 from django.http import JsonResponse
 from .forms import *
+# from admin_app.models import Product
 from django.contrib.auth import logout
 from rest_framework_simplejwt.tokens import RefreshToken
 from django.contrib import messages
@@ -101,21 +103,21 @@ class ContactusAPI(APIView):
             Serializer = ContactUsSerializer(data=request.data)
             if Serializer.is_valid():
                 Serializer.save()
-                return redirect('/ecomm_app/index/')
+                # messages.success(request,"message sent")
+                return redirect('/api/v1/index/')
             else:
-                return redirect('/ecomm_app/contactus/')
+                return redirect('/contactus/')
         except Exception as e:
-            return redirect('/ecomm_app/contactus/')
+            return redirect('/contactus/')
         
     def get(self, request):
         try:
-            get_data = ContactUs.objects.all()
-            Serializer = ContactUsSerializer(get_data, many = True)
+            events = ContactUs.objects.all()
+            Serializer = ContactUsSerializer(events, many = True)
             return JsonResponse(Serializer.data,safe=False, status= status.HTTP_200_OK)
         except Exception as e:
             return JsonResponse({"msg":"Internal server error {}".format(e)},safe=False,
                                 status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-    
     def delete(self, request,pk):
         try:
             pk = ContactUs.objects.get(pk)
@@ -167,6 +169,9 @@ class ProductListAPI(APIView):
         try:
             get_data = Product.objects.all()
             Serializer = ProductSerializer(get_data, many=True)
+            data = Serializer.data
+            # return render(request, 'app/home.html',{"data":data})
+             
             return JsonResponse(Serializer.data, safe=False,status=status.HTTP_200_OK)
         except Exception as e:
             return JsonResponse({"mesg":"Internal server error {}".format(e)},

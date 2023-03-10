@@ -20,7 +20,7 @@ class Migration(migrations.Migration):
                 ('qty', models.IntegerField()),
                 ('image', models.ImageField(upload_to='product')),
                 ('description', models.TextField()),
-                ('main_category_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='admin_app.maincategory')),
+                ('main_category_id', models.ForeignKey(default = 1,on_delete=django.db.models.deletion.CASCADE, to='admin_app.maincategory')),
                 ('sub_category_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='admin_app.subcategory')),
             ],
         ),

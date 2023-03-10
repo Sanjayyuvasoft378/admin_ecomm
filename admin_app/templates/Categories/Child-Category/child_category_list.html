@@ -1,732 +1,212 @@
-<!doctype html>
-<html lang="en" dir="ltr">
-
-<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-    	<meta name="author" content="GeniusOcean">
-    	<meta name="csrf-token" content="tabsErUdpFmv9xR99xxSlaDNChB1R3Hni633U8kr">
-		<!-- Title -->
-		<title>GeniusCart-new</title>
-		<!-- favicon -->
-		<link rel="icon"  type="image/x-icon" href="https://product.geniusocean.com/geniuscart/assets/images/16480155641571567283faviconpng.png"/>
-		<!-- Bootstrap -->
-		<link href="https://product.geniusocean.com/geniuscart/assets/admin/css/bootstrap.min.css" rel="stylesheet" />
-		<!-- Fontawesome -->
-		<link rel="stylesheet" href="https://product.geniusocean.com/geniuscart/assets/admin/css/fontawesome.css">
-		<!-- icofont -->
-		<link rel="stylesheet" href="https://product.geniusocean.com/geniuscart/assets/admin/css/icofont.min.css">
-		<!-- Sidemenu Css -->
-		<link href="https://product.geniusocean.com/geniuscart/assets/admin/plugins/fullside-menu/css/dark-side-style.css" rel="stylesheet" />
-		<link href="https://product.geniusocean.com/geniuscart/assets/admin/plugins/fullside-menu/waves.min.css" rel="stylesheet" />
-
-		<link href="https://product.geniusocean.com/geniuscart/assets/admin/css/plugin.css" rel="stylesheet" />
-
-		<link href="https://product.geniusocean.com/geniuscart/assets/admin/css/jquery.tagit.css" rel="stylesheet" />
-    	<link rel="stylesheet" href="https://product.geniusocean.com/geniuscart/assets/admin/css/bootstrap-coloroicker.css">
-		<!-- Main Css -->
-
-		<!-- stylesheet -->
-		
-		<link href="https://product.geniusocean.com/geniuscart/assets/admin/css/style.css" rel="stylesheet"/>
-		<link href="https://product.geniusocean.com/geniuscart/assets/admin/css/custom.css" rel="stylesheet"/>
-		<link href="https://product.geniusocean.com/geniuscart/assets/admin/css/responsive.css" rel="stylesheet" />
-		<link href="https://product.geniusocean.com/geniuscart/assets/admin/css/common.css" rel="stylesheet" />
-		
-		
-	</head>
-	<body id="page-top">
-
-		<div class="page">
-			<div class="page-main">
-				<!-- Header Menu Area Start -->
-				<div class="header">
-					<div class="container-fluid">
-						<div class="d-flex mobile-menu-check justify-content-between">
-							<a class="admin-logo" href="https://product.geniusocean.com/geniuscart" target="_blank">
-								<img src="https://product.geniusocean.com/geniuscart/assets/images/16480137961571567295logopng.png" alt="">
-							</a>
-							<div class="menu-toggle-button">
-								<a class="nav-link" href="javascript:;" id="sidebarCollapse">
-									<div class="my-toggl-icon">
-											<span class="bar1"></span>
-											<span class="bar2"></span>
-											<span class="bar3"></span>
-									</div>
-								</a>
-							</div>
-
-							<div class="right-eliment">
-								<ul class="list">
-									<input type="hidden" id="all_notf_count" value="https://product.geniusocean.com/geniuscart/admin/all/notf/count">
-									<li class="bell-area">
-									<a class="dropdown-toggle-1" target="_blank" href="https://product.geniusocean.com/geniuscart">
-										<i class="fas fa-globe-americas"></i>
-										</a>
-									</li>
-
-									<li class="bell-area">
-										<a id="notf_conv" class="dropdown-toggle-1" href="javascript:;">
-											<i class="far fa-envelope"></i>
-											<span id="conv-notf-count">0</span>
-										</a>
-										<div class="dropdown-menu">
-											<div class="dropdownmenu-wrapper" data-href="https://product.geniusocean.com/geniuscart/admin/conv/notf/show" id="conv-notf-show">
-										</div>
-										</div>
-									</li>
-
-									<li class="bell-area">
-										<a id="notf_product" class="dropdown-toggle-1" href="javascript:;">
-											<i class="icofont-cart"></i>
-											<span id="product-notf-count">0</span>
-										</a>
-										<div class="dropdown-menu">
-											<div class="dropdownmenu-wrapper" data-href="https://product.geniusocean.com/geniuscart/admin/product/notf/show" id="product-notf-show">
-										</div>
-										</div>
-									</li>
-
-									<li class="bell-area">
-										<a id="notf_user" class="dropdown-toggle-1" href="javascript:;">
-											<i class="far fa-user"></i>
-											<span id="user-notf-count">0</span>
-										</a>
-										<div class="dropdown-menu">
-											<div class="dropdownmenu-wrapper" data-href="https://product.geniusocean.com/geniuscart/admin/user/notf/show" id="user-notf-show">
-										</div>
-										</div>
-									</li>
-
-									<li class="bell-area">
-										<a id="notf_order" class="dropdown-toggle-1" href="javascript:;">
-											<i class="far fa-newspaper"></i>
-											<span  id="order-notf-count">1</span>
-										</a>
-										<div class="dropdown-menu">
-											<div class="dropdownmenu-wrapper" data-href="https://product.geniusocean.com/geniuscart/admin/order/notf/show" id="order-notf-show">
-										</div>
-										</div>
-									</li>
-
-									<li class="login-profile-area">
-										<a class="dropdown-toggle-1" href="javascript:;">
-											<div class="user-img">
-												<img src="https://product.geniusocean.com/geniuscart/assets/images/admins/1556780563user.png" alt="">
-											</div>
-										</a>
-										<div class="dropdown-menu">
-											<div class="dropdownmenu-wrapper">
-													<ul>
-														<h5>Welcome!</h5>
-															<li>
-																<a href="https://product.geniusocean.com/geniuscart/admin/profile"><i class="fas fa-user"></i> Edit Profile</a>
-															</li>
-															<li>
-																<a href="https://product.geniusocean.com/geniuscart/admin/password"><i class="fas fa-cog"></i> Change Password</a>
-															</li>
-															<li>
-																<a href="https://product.geniusocean.com/geniuscart/admin/logout"><i class="fas fa-power-off"></i> Logout</a>
-															</li>
-														</ul>
-											</div>
-										</div>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- Header Menu Area End -->
-				<div class="wrapper">
-					<!-- Side Menu Area Start -->
-					<nav id="sidebar" class="nav-sidebar">
-						<ul class="list-unstyled components" id="accordion">
-							<li>
-								<a href="https://product.geniusocean.com/geniuscart/admin" class="wave-effect"><i class="fa fa-home mr-2"></i>Dashboard</a>
-							</li>
-															<li>
-        <a href="#order" class="accordion-toggle wave-effect" data-toggle="collapse" aria-expanded="false"><i class="fas fa-hand-holding-usd"></i>Orders</a>
-        <ul class="collapse list-unstyled" id="order" data-parent="#accordion" >
-            <li>
-                <a href="https://product.geniusocean.com/geniuscart/admin/orders"> All Orders</a>
-            </li>
-            <li>
-                <a href="https://product.geniusocean.com/geniuscart/admin/orders?status=pending"> Pending Orders</a>
-            </li>
-            <li>
-                <a href="https://product.geniusocean.com/geniuscart/admin/orders?status=processing"> Processing Orders</a>
-            </li>
-            <li>
-                <a href="https://product.geniusocean.com/geniuscart/admin/orders?status=completed"> Completed Orders</a>
-            </li>
-            <li>
-                <a href="https://product.geniusocean.com/geniuscart/admin/orders?status=declined"> Declined Orders</a>
-            </li>
-
-        </ul>
-    </li>
-
-    <li>
-        <a href="#menu1" class="accordion-toggle wave-effect" data-toggle="collapse" aria-expanded="false">
-            <i class="fas fa-flag"></i>Manage Country
-        </a>
-        <ul class="collapse list-unstyled" id="menu1" data-parent="#accordion">
-            <li>
-                <a href="https://product.geniusocean.com/geniuscart/admin/manage/country"><span>Country</span></a>
-            </li>
-            <li>
-                <a href="https://product.geniusocean.com/geniuscart/admin/manage/country/tax"><span>Manage Tax</span></a>
-            </li>
-        </ul>
-    </li>
-
-
-
-<li>
-    <a href="#income" class="accordion-toggle wave-effect" data-toggle="collapse" aria-expanded="false"><i class="fas fa-hand-holding-usd"></i>Total Earning</a>
-    <ul class="collapse list-unstyled" id="income" data-parent="#accordion" >
-        <li>
-            <a href="https://product.geniusocean.com/geniuscart/admin/tax/calculate"> Tax Calculate</a>
-        </li>
-        <li>
-            <a href="https://product.geniusocean.com/geniuscart/admin/subscription/earning"> Subscription Earning</a>
-        </li>
-
-        <li>
-            <a href="https://product.geniusocean.com/geniuscart/admin/withdraw/earning"> Withdraw Earning</a>
-        </li>
-
-        <li>
-            <a href="https://product.geniusocean.com/geniuscart/admin/commission/earning"> Commission Earning</a>
-        </li>
-
-    </ul>
-</li>
-
-
-    <li>
-            <a href="#menu5" class="accordion-toggle wave-effect" data-toggle="collapse" aria-expanded="false"><i class="fas fa-sitemap"></i>Manage Categories</a>
-            <ul class="collapse list-unstyled
-            " id="menu5" data-parent="#accordion" >
-                    <li class="">
-                        <a href="https://product.geniusocean.com/geniuscart/admin/category"><span>Main Category</span></a>
-                    </li>
-                    <li class="">
-                        <a href="https://product.geniusocean.com/geniuscart/admin/subcategory"><span>Sub Category</span></a>
-                    </li>
-                    <li class="">
-                        <a href="{% url 'child-category' %}"><span>Child Category</span></a>
-                    </li>
-            </ul>
-    </li>
-
-    <li>
-        <a href="#menu2" class="accordion-toggle wave-effect" data-toggle="collapse" aria-expanded="false">
-            <i class="icofont-cart"></i>Products
-        </a>
-        <ul class="collapse list-unstyled" id="menu2" data-parent="#accordion">
-            <li>
-                <a href="{% url 'add-product' %}"><span>Add New Product</span></a>
-            </li>
-            <li>
-                <a href="https://product.geniusocean.com/geniuscart/admin/products"><span>All Products</span></a>
-            </li>
-            <li>
-                <a href="{% url 'deactivate-product' %}"><span>Deactivated Product</span></a>
-            </li>
-           
-        </ul>
-    </li>
-
-    {% comment %} <li>
-        <a href="#affiliateprod" class="accordion-toggle wave-effect" data-toggle="collapse" aria-expanded="false">
-            <i class="icofont-opencart"></i>Affiliate Products
-        </a>
-        <ul class="collapse list-unstyled" id="affiliateprod" data-parent="#accordion">
-            <li>
-                <a href="https://product.geniusocean.com/geniuscart/admin/products/import/create-product"><span>Add Affiliate Product</span></a>
-            </li>
-            <li>
-                <a href="https://product.geniusocean.com/geniuscart/admin/products/import/index"><span>All Affiliate Products</span></a>
-            </li>
-        </ul>
-    </li>
-
-    <li>
-        <a href="https://product.geniusocean.com/geniuscart/admin/products/import"><i class="fas fa-upload"></i>Bulk Product Upload</a>
-    </li> {% endcomment %}
-
-    <li>
-        <a href="#menu4" class="accordion-toggle wave-effect" data-toggle="collapse" aria-expanded="false">
-            <i class="icofont-speech-comments"></i>Product Discussion
-        </a>
-        <ul class="collapse list-unstyled" id="menu4" data-parent="#accordion">
-            <li>
-                <a href="{% url 'product-reviews' %}"><span>Product Reviews</span></a>
-            </li>
-            <li>
-                <a href="{% url 'product-comments' %}"><span>Comments</span></a>
-            </li>
-            <li>
-                <a href="{% url 'product-reports' %}"><span>Reports</span></a>
-            </li>
-        </ul>
-    </li>
-
-    <li>
-        <a href="{% url 'coupons' %}" class=" wave-effect"><i class="fas fa-percentage"></i>Set Coupons</a>
-    </li>
-
-    <li>
-        <a href="#menu3" class="accordion-toggle wave-effect" data-toggle="collapse" aria-expanded="false">
-            <i class="icofont-user"></i>Customers
-        </a>
-        <ul class="collapse list-unstyled" id="menu3" data-parent="#accordion">
-            <li>
-                <a href="https://product.geniusocean.com/geniuscart/admin/users"><span>Customers List</span></a>
-            </li>
-            
-        </ul>
-    </li>
-
-   
-
-    <li>
-        <a href="#vendor" class="accordion-toggle wave-effect" data-toggle="collapse" aria-expanded="false">
-            <i class="icofont-ui-user-group"></i>Vendors
-        </a>
-        <ul class="collapse list-unstyled" id="vendor" data-parent="#accordion">
-            <li>
-                <a href="https://product.geniusocean.com/geniuscart/admin/vendors"><span>Vendors List</span></a>
-            </li>
-           
-        </ul>
-    </li>
-
-    <li>
-        <a href="#vendorSubs" class="accordion-toggle wave-effect" data-toggle="collapse" aria-expanded="false">
-            <i class="icofont-user-suited"></i>Vendor Subscriptions
-        </a>
-        <ul class="collapse list-unstyled" id="vendorSubs" data-parent="#accordion">
-            <li>
-                <a href="https://product.geniusocean.com/geniuscart/admin/vendors/subs/completed"><span>Completed Subscriptions</span></a>
-            </li>
-            <li>
-                <a href="https://product.geniusocean.com/geniuscart/admin/vendors/subs/pending"><span>Pending Subscriptions</span></a>
-            </li>
-        </ul>
-    </li>
-
-    <li>
-        <a href="#vendor1" class="accordion-toggle wave-effect" data-toggle="collapse" aria-expanded="false">
-                <i class="icofont-verification-check"></i>Vendor Verifications
-        </a>
-        <ul class="collapse list-unstyled" id="vendor1" data-parent="#accordion">
-            <li>
-                <a href="https://product.geniusocean.com/geniuscart/admin/verificatons/all"><span>All Verifications</span></a>
-            </li>
-            <li>
-                <a href="https://product.geniusocean.com/geniuscart/admin/verificatons/pending"><span>Pending Verifications</span></a>
-            </li>
-        </ul>
-    </li>
-
-    <li>
-        <a href="https://product.geniusocean.com/geniuscart/admin/subscription" class=" wave-effect"><i class="fas fa-dollar-sign"></i>Vendor Subscription Plans</a>
-    </li>
-
-    <li>
-        <a href="#msg" class="accordion-toggle wave-effect" data-toggle="collapse" aria-expanded="false">
-            <i class="fas fa-fw fa-newspaper"></i>Messages
-        </a>
-        <ul class="collapse list-unstyled" id="msg" data-parent="#accordion">
-            <li>
-                <a href="https://product.geniusocean.com/geniuscart/admin/tickets"><span>Tickets</span></a>
-            </li>
-            <li>
-                <a href="https://product.geniusocean.com/geniuscart/admin/disputes"><span>Disputes</span></a>
-            </li>
-        </ul>
-    </li>
-
-    <li>
-        <a href="#blog" class="accordion-toggle wave-effect" data-toggle="collapse" aria-expanded="false">
-            <i class="fas fa-fw fa-newspaper"></i>Blog
-        </a>
-        <ul class="collapse list-unstyled" id="blog" data-parent="#accordion">
-            <li>
-                <a href="https://product.geniusocean.com/geniuscart/admin/blog/category"><span>Categories</span></a>
-            </li>
-            <li>
-                <a href="https://product.geniusocean.com/geniuscart/admin/blog"><span>Posts</span></a>
-            </li>
-            <li>
-                <a href="https://product.geniusocean.com/geniuscart/admin/blog/blog-settings"><span>Blog Settings</span></a>
-            </li>
-        </ul>
-    </li>
-
-   
-
-    <li>
-        <a href="#homepage" class="accordion-toggle wave-effect" data-toggle="collapse" aria-expanded="false">
-            <i class="fas fa-edit"></i>Home Page Settings
-        </a>
-        <ul class="collapse list-unstyled" id="homepage" data-parent="#accordion">
-            <li>
-                <a href="https://product.geniusocean.com/geniuscart/admin/slider"><span>Sliders</span></a>
-            </li>
-
-            <li>
-                <a href="https://product.geniusocean.com/geniuscart/admin/arrival"><span>Arrival Section</span></a>
-            </li>
-            <li>
-                <a href="https://product.geniusocean.com/geniuscart/admin/general-settings/deal_of_the_day"><span>Deal of the day</span></a>
-            </li>
-
-
-            <li>
-                <a href="https://product.geniusocean.com/geniuscart/admin/partner"><span>Partners</span></a>
-            </li>
-            <li>
-                <a href="https://product.geniusocean.com/geniuscart/admin/page-settings/customize"><span>Home Page Customization</span></a>
-            </li>
-        </ul>
-    </li>
-
-    <li>
-        <a href="#menu" class="accordion-toggle wave-effect" data-toggle="collapse" aria-expanded="false">
-            <i class="fas fa-file-code"></i>Menu Page Settings
-        </a>
-        <ul class="collapse list-unstyled" id="menu" data-parent="#accordion">
-            <li>
-                <a href="https://product.geniusocean.com/geniuscart/admin/faq"><span>FAQ Page</span></a>
-            </li>
-            <li>
-                <a href="https://product.geniusocean.com/geniuscart/admin/page-settings/contact"><span>Contact Us Page</span></a>
-            </li>
-            <li>
-                <a href="https://product.geniusocean.com/geniuscart/admin/page"><span>Other Pages</span></a>
-            </li>
-            <li>
-                <a href="https://product.geniusocean.com/geniuscart/admin/page/banner"><span>Other Page Banner</span></a>
-            </li>
-            <li>
-                <a href="https://product.geniusocean.com/geniuscart/admin/menu/links"><span>Customize Menu Links</span></a>
-            </li>
-        </ul>
-    </li>
-
-    
-
-    <li>
-        <a href="#payments" class="accordion-toggle wave-effect" data-toggle="collapse" aria-expanded="false">
-            <i class="fas fa-file-code"></i>Payment Settings
-        </a>
-        <ul class="collapse list-unstyled" id="payments" data-parent="#accordion">
-            <li><a href="https://product.geniusocean.com/geniuscart/admin/payment-informations"><span>Payment Information</span></a></li>
-            <li><a href="https://product.geniusocean.com/geniuscart/admin/paymentgateway"><span>Payment Gateways</span></a></li>
-            <li><a href="https://product.geniusocean.com/geniuscart/admin/currency"><span>Currencies</span></a></li>
-            <li><a href="https://product.geniusocean.com/geniuscart/admin/rewards"><span>Reward Information</span></a></li>
-        </ul>
-    </li>
-
-    <li>
-        <a href="#socials" class="accordion-toggle wave-effect" data-toggle="collapse" aria-expanded="false">
-            <i class="fas fa-paper-plane"></i>Social Settings
-        </a>
-        <ul class="collapse list-unstyled" id="socials" data-parent="#accordion">
-                <li><a href="https://product.geniusocean.com/geniuscart/admin/social-link"><span>Social Links</span></a></li>
-                <li><a href="https://product.geniusocean.com/geniuscart/admin/social/facebook"><span>Facebook Login</span></a></li>
-                <li><a href="https://product.geniusocean.com/geniuscart/admin/social/google"><span>Google Login</span></a></li>
-        </ul>
-    </li>
-
-    
-
-    <li>
-        <a href="https://product.geniusocean.com/geniuscart/admin/fonts" class=" wave-effect"><i class="fa fa-font"></i>Font Option</a>
-    </li>
-
-    <li>
-        <a href="#seoTools" class="accordion-toggle wave-effect" data-toggle="collapse" aria-expanded="false">
-            <i class="fas fa-wrench"></i>SEO Tools
-        </a>
-        <ul class="collapse list-unstyled" id="seoTools" data-parent="#accordion">
-            <li>
-                <a href="https://product.geniusocean.com/geniuscart/admin/products/popular/30"><span>Popular Products</span></a>
-            </li>
-          
-        </ul>
-    </li>
-
-
-
-
-
-
-
-    <li>
-        <a href="https://product.geniusocean.com/geniuscart/admin/staff" class=" wave-effect"><i class="fas fa-user-secret"></i>Manage Staffs</a>
-    </li>
-
-    <li>
-        <a href="https://product.geniusocean.com/geniuscart/admin/subscribers" class=" wave-effect"><i class="fas fa-users-cog mr-2"></i>Subscribers</a>
-    </li>
-
-
-    <li>
-        <a href="https://product.geniusocean.com/geniuscart/admin/role" class=" wave-effect"><i class="fas fa-user-tag"></i>Manage Roles</a>
-    </li>
-
-    <li>
-        <a href="https://product.geniusocean.com/geniuscart/admin/cache/clear" class=" wave-effect"><i class="fas fa-sync"></i>Clear Cache</a>
-    </li>
-
-
-
-    <!--<li>-->
-    <!--    <a href="#sactive" class="accordion-toggle wave-effect" data-toggle="collapse" aria-expanded="false">-->
-    <!--        <i class="fas fa-cog"></i>System Activation-->
-    <!--    </a>-->
-    <!--    <ul class="collapse list-unstyled" id="sactive" data-parent="#accordion">-->
-
-    <!--        <li><a href="https://product.geniusocean.com/geniuscart/admin/activation"> Activation</a></li>-->
-    <!--        <li><a href="https://product.geniusocean.com/geniuscart/admin/generate/backup"> Generate Backup</a></li>-->
-    <!--    </ul>-->
-    <!--</li>-->
-
-								<li class="mt-3 text-dark text-center">
-									Version 4.0
-								</li>
-														
-						</ul>
-						
-					</nav>
-					<!-- Main Content Area Start -->
-										<input type="hidden" id="headerdata" value="CHILD CATEGORY">
-					<input id="attribute_data" value="ADD NEW ATTRIBUTE">
-					<div class="content-area">
-						<div class="mr-breadcrumb">
-							<div class="row">
-								<div class="col-lg-12">
-										<h4 class="heading">Child Categories</h4>
-										<ul class="links">
-											<li>
-												<a href="https://product.geniusocean.com/geniuscart/admin">Dashboard </a>
-											</li>
-											<li><a href="javascript:;">Manage Categories</a></li>
-											<li>
-												<a href="https://product.geniusocean.com/geniuscart/admin/childcategory">Child Categories</a>
-											</li>
-										</ul>
-								</div>
-							</div>
-						</div>
-						<div class="product-area">
-							<div class="row">
-								<div class="col-lg-12">
-									<div class="mr-table allproduct">
-
-                        				<div class="alert alert-success validation" style="display: none;">
-      <button type="button" class="close alert-close"><span>×</span></button>
-            <p class="text-left"></p> 
+{% extends 'base.html' %}
+{% block 'main-content' %}
+  <input type="hidden" id="headerdata" value="CHILD CATEGORY">
+  <input type="hidden" id="attribute_data" value="ADD NEW ATTRIBUTE">
+      <div class="content-area">
+          <div class="mr-breadcrumb">
+              <div class="row">
+                  <div class="col-lg-12">
+                    <h4 class="heading">Child Categories</h4>
+                    <ul class="links">
+                      <li>
+                        <a href="{% url 'dashboard' }">Dashboard </a>
+                      </li>
+                      <li>
+                        <a href="{% url 'child-category' }">Manage Categories</a>
+                      </li>
+                      <li>
+                        <a href="{% url 'child-category' }">Sub Categories</a>
+                      </li>
+                      <button type="button" class="btn btn-primary" style="float:right" data-toggle="modal" data-target="#exampleModal">Add New</button>
+                    </ul>
+                  </div>
+              </div>
+          </div>
+          <div class="product-area">
+              <div class="row">
+                  <div class="col-lg-12">
+                      <div class="mr-table allproduct">
+                          <div class="alert alert-success validation" style="display: none;">
+                            <button type="button" class="close alert-close"><span>×</span></button>
+                            <p class="text-left"></p> 
+                          </div>
+                          <div class="table-responsive">
+                              <table id="geniustable" class="table table-hover dt-responsive" cellspacing="0" width="100%">
+                                  <thead>
+                                      <tr>
+                                        <th>Id</th>
+                                        <th>image</th>
+                                        <th >Main Category</th>
+                                        <th >Sub Category</th>
+                                        <th>category_name</th>
+                                        <th>description</th>
+                                        <th>Status</th>
+                                        <th  width="20%">Options</th>
+                                      </tr>
+                                  </thead>
+                                  {% for sub_cat in data %}
+                                    <tbody>
+                                      <tr>
+                                        <td>{{sub_cat.id}}</td>
+                                        <td><img src="{{sub_cat.image }}"></td>
+                                        <td>{{sub_cat.main_category_id }}</td>
+                                        <td>{{sub_cat.sub_category_id }}</td>
+                                        <td>{{sub_cat.category_name }}</td>
+                                        <td>{{sub_cat.description }}</td>
+                                        <td>Active</td>
+                                        <td>
+                                          <button class="btn btn-danger"><a href="{% url 'child-category' sub_cat.id %}">Delete</a></button>
+                                          <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Edit</button>
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  {% endfor %}
+                              </table>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
       </div>
-										<div class="table-responsive">
-												<table id="geniustable" class="table table-hover dt-responsive" cellspacing="0" width="100%">
-													<thead>
-														<tr>
-															<th>Category</th>
-															<th>Sub Category</th>
-															<th>Name</th>
-															<th>Slug</th>
-															<th width="20%">Attributes</th>
-															<th>Status</th>
-															<th>Options</th>
-														</tr>
-													</thead>
-												</table>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-
-
-
-										<div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="modal1" aria-hidden="true">
-
-										<div class="modal-dialog modal-dialog-centered" role="document">
-										<div class="modal-content">
-												<div class="submit-loader">
-														<img  src="https://product.geniusocean.com/geniuscart/assets/images/1564224329loading3.gif" alt="">
-												</div>
-											<div class="modal-header">
-											<h5 class="modal-title"></h5>
-											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-												<span aria-hidden="true">&times;</span>
-											</button>
-											</div>
-											<div class="modal-body">
-
-											</div>
-											<div class="modal-footer">
-											<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-											</div>
-										</div>
-										</div>
-</div>
-
-
-
-
-
-										<div class="modal fade" id="attribute" tabindex="-1" role="dialog" aria-labelledby="attribute" aria-hidden="true">
-
-										<div class="modal-dialog modal-dialog-centered" role="document">
-										<div class="modal-content">
-												<div class="submit-loader">
-														<img  src="https://product.geniusocean.com/geniuscart/assets/images/1564224329loading3.gif" alt="">
-												</div>
-											<div class="modal-header">
-											<h5 class="modal-title"></h5>
-											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-												<span aria-hidden="true">&times;</span>
-											</button>
-											</div>
-											<div class="modal-body">
-
-											</div>
-											<div class="modal-footer">
-											<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-											</div>
-										</div>
-										</div>
-</div>
-
-
-
-
-
-
-<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="modal1" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-
-	<div class="modal-header d-block text-center">
-		<h4 class="modal-title d-inline-block">Confirm Delete</h4>
-			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-				<span aria-hidden="true">&times;</span>
-			</button>
-	</div>
-
-      <!-- Modal body -->
-      <div class="modal-body">
-            <p class="text-center">You are about to delete this Child Category. Everything under this category will be deleted.</p>
-            <p class="text-center">Do you want to proceed?</p>
+      <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="modal1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+              <div class="submit-loader">
+                  <img  src="https://product.geniusocean.com/geniuscart/assets/images/1564224329loading3.gif" alt="">
+              </div>
+              <div class="modal-header">
+                <h5 class="modal-title"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+          </div>
+        </div>
       </div>
-
-      <!-- Modal footer -->
-      <div class="modal-footer justify-content-center">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-            			<form action="" class="d-inline delete-form" method="POST">
-				<input type="hidden" name="_method" value="delete" />
-				<input type="hidden" name="_token" value="tabsErUdpFmv9xR99xxSlaDNChB1R3Hni633U8kr">
-				<button type="submit" class="btn btn-danger">Delete</button>
-			</form>
+      <div class="modal fade" id="attribute" tabindex="-1" role="dialog" aria-labelledby="attribute" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="submit-loader">
+                <img  src="https://product.geniusocean.com/geniuscart/assets/images/1564224329loading3.gif" alt="">
+            </div>
+            <div class="modal-header">
+              <h5 class="modal-title"></h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
       </div>
+      <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="modal1" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header d-block text-center">
+              <h4 class="modal-title d-inline-block">Confirm Delete</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body">
+                  <p class="text-center">You are about to delete this Category. Everything under this category will be deleted.</p>
+                  <p class="text-center">Do you want to proceed?</p>
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer justify-content-center">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <form action="" class="d-inline delete-form" method="POST">
+                  <input type="hidden" name="_method" value="delete" />
+                  <input type="hidden" name="_token" value="tabsErUdpFmv9xR99xxSlaDNChB1R3Hni633U8kr">
+                  <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Add Childcategory</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <!DOCTYPE html>
+              <html>
+                <body>
+                  <form method="POST" action="{% url 'child-category' %}" enctype="multipart/form-data">
+                    <div class="formcontainer">
+                      <div class="container">
+                        <label for="main_category_id"><strong>main_category_id</strong></label><br>
+                        {% comment %} <input type="text" placeholder="Enter main_category_id" name="main_category_id" required><br> {% endcomment %}
+                        <td>
+                          <select id="dropdown">
+                            <option id="dropdown"> Select an option</option>
+                            {% for i in main_data %}
+                            {{ i }}
+                            {{ main_data.category_name }}
+                            {% endfor %}
+                          </select>
+                        </td>
+                        <label for="main_category_id"><strong>_category_id</strong></label><br>
+                        {% comment %} <input type="text" placeholder="Enter main_category_id" name="main_category_id" required><br> {% endcomment %}
+                        <td>
+                          <select id="dropdown">
+                            <option id="dropdown"> Select an option</option>
+                            {% for i in main_data %}
+                            {{ i }}
+                            {{ main_data.category_name }}
+                            {% endfor %}
+                          </select>
+                        </td>
+                        <label for="category_name"><strong>category_name</strong></label><br>
+                        <input type="text" placeholder="Enter category_name" name="category_name" required><br>
+                        <label for="description"><strong>description</strong></label><br>
+                        <input type="text" placeholder="Enter description" name="description" required><br>
+                        <label for="cate_image"><strong>cate_image (size cannot exceed 1 MB)</strong></label><br>
+                        <input type="file" placeholder="cate_image" name="cate_image" accept="cate_image/jpeg, cate_image/png, cate_image/gif" required><br>
+                      </div>
+                      <div class="container" style="background-color: #eee">
+                        <button type="submit" class="btn btn-primary"><strong>Submit</strong></button>
+                      </div>
+                    </div>
+                  </form>
+                </body>
+                <script>
+                    fetch('http://127.0.0.1:8000/api/v1/main-category/')
+                      .then(response => response.json())
+                      .then(data => {
+                        console.log("ssssssssssssssss",data)
+                        const dropdown = document.getElementById('dropdown');
+                        data.forEach(item => {
+                          console.log("dsad",item)
+                          const option = document.createElement('option');
+                          option.value = item.id;
+                          option.text = item.category_name;
+                          dropdown.appendChild(option);
+                        });
+                      })
+                      .catch(error => console.error(error));
+                  </script>
+              </html>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+{% endblock 'main-content' %}
 
-    </div>
-  </div>
-</div>
-
-
-
-					<!-- Main Content Area End -->
-					</div>
-				</div>
-			</div>
-						<script type="text/javascript">
-			  var mainurl = "https://product.geniusocean.com/geniuscart";
-			  var admin_loader = 1;
-			  var whole_sell = 6;
-			  var getattrUrl = 'https://product.geniusocean.com/geniuscart/admin/getattributes';
-			  var curr = {"id":1,"name":"USD","sign":"$","value":"1","is_default":"1"};
-			  var lang  = {
-					'additional_price': '0.00 (Additional Price)'
-  				};
-			</script>
-
-		<!-- Dashboard Core -->
-		<script src="https://product.geniusocean.com/geniuscart/assets/admin/js/vendors/jquery-1.12.4.min.js"></script>
-		<script src="https://product.geniusocean.com/geniuscart/assets/admin/js/vendors/vue.js"></script>
-		<script src="https://product.geniusocean.com/geniuscart/assets/admin/js/vendors/bootstrap.min.js"></script>
-		<script src="https://product.geniusocean.com/geniuscart/assets/admin/js/jqueryui.min.js"></script>
-		<!-- Fullside-menu Js-->
-		<script src="https://product.geniusocean.com/geniuscart/assets/admin/plugins/fullside-menu/jquery.slimscroll.min.js"></script>
-		<script src="https://product.geniusocean.com/geniuscart/assets/admin/plugins/fullside-menu/waves.min.js"></script>
-
-		<script src="https://product.geniusocean.com/geniuscart/assets/admin/js/plugin.js"></script>
-		<script src="https://product.geniusocean.com/geniuscart/assets/admin/js/Chart.min.js"></script>
-		<script src="https://product.geniusocean.com/geniuscart/assets/admin/js/tag-it.js"></script>
-		<script src="https://product.geniusocean.com/geniuscart/assets/admin/js/nicEdit.js"></script>
-        <script src="https://product.geniusocean.com/geniuscart/assets/admin/js/bootstrap-colorpicker.min.js"></script>
-        <script src="https://product.geniusocean.com/geniuscart/assets/admin/js/notify.js"></script>
-
-        <script src="https://product.geniusocean.com/geniuscart/assets/admin/js/jquery.canvasjs.min.js"></script>
-
-		<script src="https://product.geniusocean.com/geniuscart/assets/admin/js/load.js"></script>
-		<!-- Custom Js-->
-		<script src="https://product.geniusocean.com/geniuscart/assets/admin/js/custom.js"></script>
-		<!-- AJAX Js-->
-		<script src="https://product.geniusocean.com/geniuscart/assets/admin/js/myscript.js"></script>
-		
-
-
-    <script type="text/javascript">
-
-(function($) {
-		"use strict";
-
-		var table = $('#geniustable').DataTable({
-			   ordering: false,
-               processing: true,
-               serverSide: true,
-               ajax: 'https://product.geniusocean.com/geniuscart/admin/childcategory/datatables',
-               columns: [
-               			{ data: 'category', searchable: false, orderable: false},
-               			{ data: 'subcategory', searchable: false, orderable: false},
-                    { data: 'name', name: 'name' },
-										{ data: 'slug', name: 'slug' },
-                    { data: 'attributes', name: 'attributes', searchable: false, orderable: false },
-                    { data: 'status', searchable: false, orderable: false},
-            				{ data: 'action', searchable: false, orderable: false }
-								],
-                language : {
-                	processing: '<img src="https://product.geniusocean.com/geniuscart/assets/images/1564224329loading3.gif">'
-                },
-				drawCallback : function( settings ) {
-	    				$('.select').niceSelect();
-				}
-            });
-
-      	$(function() {
-        $(".btn-area").append('<div class="col-sm-4 table-contents">'+
-        	'<a class="add-btn" data-href="https://product.geniusocean.com/geniuscart/admin/childcategory/create" id="add-data" data-toggle="modal" data-target="#modal1">'+
-          '<i class="fas fa-plus"></i> <span class="remove-mobile">Add New<span>'+
-          '</a>'+
-          '</div>');
-      });
-
-})(jQuery);
-
-</script>
-
-
-
-	</body>
-
-</html>

@@ -5,25 +5,13 @@ from .models import *
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
     list_display = ['id','title','discount_price',
-                'composition','category','product_image']
-
+                'description','category','product_image']
 
 @admin.register(Customer)
 class CustomerAdmin(admin.ModelAdmin):
     list_display = ['id','user','locality',
                 'city','state','zipcode']
      
-
-
-
-
-
-
-
-
-
-
-
 @admin.register(UserRegistration)
 class UserRegistration(admin.ModelAdmin):
     list_display = ['id','username','email','password1','password2']
@@ -40,12 +28,9 @@ class AddToCart(admin.ModelAdmin):
 class OrderAdmin(admin.ModelAdmin):
     list_display = ['id','product_title','qty','price']
 
-
-
 @admin.register(Wishlist)
 class WishlistAdmin(admin.ModelAdmin):
     list_display = ['product_id','qty']
-
 
 @admin.register(ProductReviewModel)
 class ProductReviewAdmin(admin.ModelAdmin):

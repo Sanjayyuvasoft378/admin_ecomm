@@ -3,6 +3,15 @@ from .models import *
 # Register your models here.
 
 
+
+@admin.register(File)
+class FileAdmin(admin.ModelAdmin):
+    list_display = ['file']
+
+@admin.register(Posts)
+class PostsAdmin(admin.ModelAdmin):
+    list_display = ['id','title','image','description']
+
 @admin.register(MainCategory)
 class MainCategoryAdmin(admin.ModelAdmin):
     list_display = ['id','category_name','description','cate_image']

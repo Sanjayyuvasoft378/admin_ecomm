@@ -14,6 +14,9 @@ CATEGORY_CHOICE = (
     ("BM","Buttermilk")
 )
 
+ 
+
+
 class Product(models.Model):
     title = models.CharField(max_length=100)
     selling_price = models.CharField(max_length=20)
@@ -88,6 +91,7 @@ class UserRegistration(models.Model):
     password2 = models.CharField(max_length=15)
     def __str__(self):
         return self.username
+
 class ContactUs(models.Model):
     username = models.CharField(max_length=100)
     email = models.EmailField(max_length=254, unique=True)
@@ -125,6 +129,7 @@ class UserManager(BaseUserManager):
         user.is_admin = True
         user.save(using=self._db)
         return user
+
 
 class User(AbstractBaseUser):
     email = models.EmailField(verbose_name='email',

@@ -58,7 +58,7 @@
 									<td>{{ data.qty }}</td>
 									<td>{{ data.description }}</td>
                             <td>
-                              <button type="button"  class="btn btn-danger"><a href="">Delete</a></button>
+                              <button id="delete_modal" type="button"  class="btn btn-danger" data-toggle="modal" data-target="#delete_modal"><a href="">Delete</a></button>
                              <button class="btn btn-primary"><a href="">Edit</a></button></td>
                             </tr>
 									{% endfor %}
@@ -135,6 +135,7 @@
       </div>
 
       <!-- Modal footer -->
+	  <div class="modal fade" id="delete_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-footer justify-content-center">
             <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
             			<form action="" class="d-inline delete-form" method="POST">
@@ -143,6 +144,7 @@
 				<button type="submit" class="btn btn-danger">Delete</button>
 			</form>
       </div>
+	  </div>
 
     </div>
   </div>
@@ -209,15 +211,16 @@
       <div class="container">
         <label for="main_category_id"><strong>Main Category</strong></label><br>
 		<td>
-			<select id="program" name="program" class="program-dropdown" style="width:400px;">
+			<select id="main_category_id" name="main_category_id" class="program-dropdown" style="width:400px;">
 			{% for program in data %}
+			{{ program }}
 				<option >{{ program.main_category_id }}</option>
 			`		{% endfor %}
 			</select>
 		</td>
-        <input type="text" placeholder="Enter main_category_id" name="main_category_id" required><br>
+        <input type="number" placeholder="Enter main_category_id" name="main_category_id" required><br>
         <label for="sub_category_id"><strong>Sub Category</strong></label><br>
-        <input type="text" placeholder="Enter sub_category_id" name="sub_category_id" required><br>
+        <input type="number" placeholder="Enter sub_category_id" name="sub_category_id" required><br>
 
         <label for="product_name"><strong>Product Name</strong></label><br>
         <input type="text" placeholder="Enter product_name" name="product_name" required><br>

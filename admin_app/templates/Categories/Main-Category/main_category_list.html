@@ -9,14 +9,14 @@
                     <h4 class="heading">Main Categories</h4>
                     <ul class="links">
                         <li>
-                            <a href="https://product.geniusocean.com/geniuscart/admin">Dashboard </a>
+                            <a href="{% url 'dashboard' %}">Dashboard </a>
                         </li>
-                        <li><a href="javascript:;">Manage Categories</a></li>
+                        <li><a href="{% url 'main-category' %}">Manage Categories</a></li>
                         <li>
-                            <a href="https://product.geniusocean.com/geniuscart/admin/category">Main Categories</a>
+                            <a href="{% url 'main-category' %}">Main Categories</a>
                         </li>
                     <button type="button" class="btn btn-primary" style="float:right" data-toggle="modal" data-target="#exampleModal">Add New</button>
-                    </ul>
+                    </ul> 
             </div>
         </div>
     </div>
@@ -32,6 +32,7 @@
                         <table id="geniustable" class="table table-hover dt-responsive" cellspacing="0" width="100%">
                             <thead>
                                 <tr>
+                                    <th>Id</th>
                                     <th width="20%">image</th>
                                     <th width="20%">category_name</th>
                                     <th width="20%">description</th>
@@ -41,17 +42,19 @@
                             </thead>
                             {% for main_data in data %}
                             <tbody>
-                            <tr>
-                            <td><img src="{{ main_data.cate_image }}"></td>
-                            <td>{{ main_data.category_name }}</td>
-                            <td>{{ main_data.description }}</td>
-                            <td>Active</td>
-                            <td>
-                              <button type="button"  class="btn btn-danger"><a href="{% url 'main-category' main_data.id %}">Delete</a></button>
-                             <button class="btn btn-primary"><a href="{% url 'main-category' main_data.id %}">Edit</a></button></td>
-                            </tr>
-                            </tbody>
-                            {% endfor %}
+                              <tr>
+                                <td>{{ main_data.id }}</td>
+                                <td><img src="{{ main_data.cate_image }}"></td>
+                                <td>{{ main_data.category_name }}</td>
+                                <td >{{ main_data.description }}</td>
+                                <td>Active</td>
+                                <td>
+                                  <button class="btn btn-danger"><a href="{% url 'main-category-detail' main_data.id %}">Delete</a></button>
+                                  <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Edit</button>
+                                </td>
+                              </tr>
+                          </tbody>  
+                        {% endfor %}
                         </table>
                     </div>
                     </div>
@@ -114,13 +117,15 @@
             <p class="text-center">Do you want to proceed?</p>
       </div>
       <!-- Modal footer -->
-      <div class="modal-footer justify-content-center">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-            			<form action="" class="d-inline delete-form" method="POST">
-				<input type="hidden" name="_method" value="delete" />
-				<input type="hidden" name="_token" value="tabsErUdpFmv9xR99xxSlaDNChB1R3Hni633U8kr">
-				<button type="submit" class="btn btn-danger">Delete</button>
-			</form>
+      <div class="modal fade" id="delete_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            <form action="" class="d-inline delete-form" method="POST">
+              <input type="hidden" name="_method" value="delete" />
+              <input type="hidden" name="_token" value="tabsErUdpFmv9xR99xxSlaDNChB1R3Hni633U8kr">
+              <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+        </div>
       </div>
 
     </div>
@@ -145,14 +150,15 @@
 <html>
  
   <body>
-    <form method="POST" action="{% url 'main-category' %}">
+    <form method="POST" action="{% url 'main-category' %}" enctype="multipart/form-data">
+
       <div class="formcontainer">
       <div class="container">
         <label for="category_name"><strong>category_name</strong></label><br>
         <input type="text" placeholder="Enter category_name" name="category_name" required><br>
         <label for="description"><strong>description</strong></label><br>
         <input type="text" placeholder="Enter description" name="description" required><br>
-        <label for="cate_image"><strong>cate_image</strong></label><br>
+        <label for="cate_image"><strong>cate_image (size cannot exceed 1 MB)</strong></label><br>
         <input type="file" placeholder="cate_image" name="cate_image" accept="cate_image/jpeg, cate_image/png, cate_image/gif" required><br>
       </div>
       <div class="container" style="background-color: #eee">

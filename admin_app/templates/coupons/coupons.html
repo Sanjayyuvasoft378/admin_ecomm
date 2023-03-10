@@ -2,35 +2,35 @@
 {% block 'main-content' %}
 <input type="hidden" id="headerdata" value="COUPON">
 <div class="content-area">
-<div class="mr-breadcrumb">
-	<div class="row">
-		<div class="col-lg-12">
-			<h4 class="heading">Coupons</h4>
-			<ul class="links">
-				<li>
-					<a href="{% url 'dashboard' %}">Dashboard </a>
-				</li>
-				<li>
-					<a href="{% url 'coupons' %}">Coupons</a>
-				</li>
-				<button type="button" class="btn btn-primary" style="float:right" data-toggle="modal" data-target="#exampleModal">Add New</button>
-			</ul>
+	<div class="mr-breadcrumb">
+		<div class="row">
+			<div class="col-lg-12">
+				<h4 class="heading">Coupons</h4>
+				<ul class="links">
+					<li>
+						<a href="{% url 'dashboard' %}">Dashboard </a>
+					</li>
+					<li>
+						<a href="{% url 'coupons' %}">Coupons</a>
+					</li>
+					<button type="button" class="btn btn-primary" style="float:right" data-toggle="modal" data-target="#exampleModal">Add New</button>
+				</ul>
+			</div>
 		</div>
 	</div>
-</div>
-<div class="product-area">
-	<div class="row">
-		<div class="col-lg-12">
-			<div class="mr-table allproduct">
-				<div class="alert alert-success validation" style="display: none;">
-					<button type="button" class="close alert-close"><span>×</span></button>
-							<p class="text-left"></p> 
-				</div>  
-					<div class="table-responsive">
+	<div class="product-area">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="mr-table allproduct">
+					<div class="alert alert-success validation" style="display: none;">
+						<button type="button" class="close alert-close"><span>×</span></button>
+						<p class="text-left"></p> 
+					</div>  
+						<div class="table-responsive">
 							<table id="geniustable" class="table table-hover dt-responsive" cellspacing="0" width="100%">
 								<thead>
-									<tr>
-										<th width="40%">Code</th>
+									<tr width="40">
+										<th>Code</th>
 										<th>Type</th>
 										<th>Amount</th>
 										<th>Used</th>
@@ -38,113 +38,104 @@
 									</tr>
 								</thead>
 								{% for i in data %}
-								<tbody>
-								<tr>
-								<th>{{ i.coupon_type }}</th>
-								<th>{{ i.coupon_type }}</th>
-								<th>{{ i.amount }}</th>
-								<th>{{ i.used }}</th>
-	<td>
-		<button type="button"  class="btn btn-danger"><a href="{% url 'coupons' i.id  %}">Delete</a></button>
-		<button class="btn btn-primary"><a href="">Edit</a></button>
-	</td>
-	</tr>
-	</tbody>
-	{% endfor %}
-</table>
-</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="modal1" aria-hidden="true">
-<div class="modal-dialog modal-dialog-centered" role="document">
-<div class="modal-content">
-		<div class="submit-loader">
-				<img  src="https://product.geniusocean.com/geniuscart/assets/images/1564224329loading3.gif" alt="">
-		</div>
-	<div class="modal-header">
-	<h5 class="modal-title"></h5>
-	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-		<span aria-hidden="true">&times;</span>
-	</button>
-	</div>
-	<div class="modal-body">
-
-	</div>
-	<div class="modal-footer">
-	<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-	</div>
-</div>
-</div>
-</div>
-<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="modal1" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-
-	<div class="modal-header d-block text-center">
-		<h4 class="modal-title d-inline-block">Confirm Delete</h4>
-			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-				<span aria-hidden="true">&times;</span>
-			</button>
-	</div>
-
-      <!-- Modal body -->
-      <div class="modal-body">
-            <p class="text-center">You are about to delete this Coupon.</p>
-            <p class="text-center">Do you want to proceed?</p>
-      </div>
-
-      <!-- Modal footer -->
-      <div class="modal-footer justify-content-center">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-            <form action="" class="d-inline delete-form" method="POST">
-				<input type="hidden" name="_method" value="delete" />
-				<input type="hidden" name="_token" value="tabsErUdpFmv9xR99xxSlaDNChB1R3Hni633U8kr">
-				<button type="submit" class="btn btn-danger">Delete</button>
-			</form>
-      </div>
-
-    </div>
-  </div>
-</div>
+									<tbody>
+										<tr>
+											<th>{{ i.coupon_type }}</th>
+											<th>{{ i.coupon_type }}</th>
+											<th>{{ i.amount }}</th>
+											<th>{{ i.used }}</th>
+											<td>
+												<button type="button"  class="btn btn-danger"><a href="{% url 'coupons' i.id  %}">Delete</a></button>
+												<button class="btn btn-primary"><a href="">Edit</a></button>
+											</td>
+										</tr>
+									</tbody>
+								{% endfor %}
+							</table>
+						</div>
 					</div>
 				</div>
 			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="modal1" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="submit-loader">
+						<img  src="https://product.geniusocean.com/geniuscart/assets/images/1564224329loading3.gif" alt="">
+				</div>
+				<div class="modal-header">
+					<h5 class="modal-title"></h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="modal1" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header d-block text-center">
+				<h4 class="modal-title d-inline-block">Confirm Delete</h4>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<!-- Modal body -->
+			<div class="modal-body">
+				<p class="text-center">You are about to delete this Coupon.</p>
+				<p c	lass="text-center">Do you want to proceed?</p>
+			</div>
+			<!-- Modal footer -->
+			<div class="modal-footer justify-content-center">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+				<form action="" class="d-inline delete-form" method="POST">
+					<input type="hidden" name="_method" value="delete" />
+					<input type="hidden" name="_token" value="tabsErUdpFmv9xR99xxSlaDNChB1R3Hni633U8kr">
+					<button type="submit" class="btn btn-danger">Delete</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	</div>
+</div>
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Add Coupon</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-     <!DOCTYPE html>
-<html>
-  <body>
-    <form method="POST">
-      <div class="formcontainer">
-		<div class="container">
-			<label for="coupon_type"><strong>coupon_type</strong></label><br>
-			<input type="text" placeholder="Enter coupon_type" name="coupon_type" required><br>
-			<label>amount</label><br>
-			<input type="number" placeholder="Enter amount" name="amount" required><br>
-			<label for="used"><strong>used</strong></label><br>
-			<input type="text" placeholder="used" name="used" required><br>
+		<div class="modal-header">
+			<h5 class="modal-title" id="exampleModalLabel">Add Coupon</h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+			</button>
 		</div>
-	  </div>
-      	<div class="container" style="background-color: #eee"></div>
-    </form>
-  </body>
-</html>
-      </div>
-      <div class="modal-footer">
-        <button type="submit" class="btn btn-primary"><strong><a href="/api/v1/coupons">Submit</a></strong></button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
+		<div class="modal-body">
+			<!DOCTYPE html>
+			<html>
+				<body>
+					<form method="POST" action="/api/v1/coupons/">
+						<div class="formcontainer">
+							<div class="container">
+								<label for="coupon_type"><strong>coupon_type</strong></label><br>
+								<input type="text" placeholder="Enter coupon_type" name="coupon_type" required><br>
+								<label>amount</label><br>
+								<input type="number" placeholder="Enter amount" name="amount" required><br>
+								<label for="used"><strong>used</strong></label><br>
+								<input type="text" placeholder="used" name="used" required><br>
+							</div>
+						</div>
+						<div class="container" style="background-color: #eee"></div>
+						<button type="submit" class="btn btn-primary"><strong><a href="/api/v1/coupons">Submit</a></strong></button>
+					</form>
+				</body>
+			</html>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		</div>
     </div>
   </div>
 </div>

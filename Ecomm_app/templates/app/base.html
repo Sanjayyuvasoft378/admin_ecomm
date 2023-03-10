@@ -44,7 +44,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/ecomm_app/api/v1/index/">Home</a>
+              <a class="nav-link active" aria-current="page" href="/api/v1/index/">Home</a>
             </li>
 
             <li class="nav-item dropdown">
@@ -70,13 +70,13 @@
             </li>
 
             <li class="nav-item">
-              <a class="nav-link text-white" href="/ecomm_app/api/v1/about/">About Us</a>
+              <a class="nav-link text-white" href="/api/v1/about/">About Us</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white" href="/ecomm_app/api/v1/contact/">Contact Us</a>
+              <a class="nav-link text-white" href="/api/v1/contact/">Contact Us</a>
             </li>
           </ul>
-          <form class="d-flex" role="search" action='/ecomm_app/api/v1/searchdata/' method='post'>
+          <form class="d-flex" role="search" action='/api/v1/searchdata/' method='post'>
             {% csrf_token %}
             <input
               class="form-control me-2"
@@ -104,27 +104,27 @@
                 <a class="dropdown-item" href="{% url 'profile' %}">Profile</a>
               </li>
               <li>
-                <a class="dropdown-item" href="/ecomm_app/api/v1/orderlist/">Orders</a>
+                <a class="dropdown-item" href="/api/v1/orderlist/">Orders</a>
               </li>
               <li>
                 {% comment %} {% url 'orders' %} {% endcomment %}
-                <a class="dropdown-item" href="/ecomm_app/api/v1/changepassword/"
+                <a class="dropdown-item" href="/api/v1/changepassword/"
                   >Change Password</a
                 >
               </li>
               <li>
-                <a class="dropdown-item" href="/ecomm_app/api/v1/logout/">Logout</a>
+                <a class="dropdown-item" href="/api/v1/logout/">Logout</a>
               </li>
             </ul>
           </li>
           <li class="nav-item mx-2">
-            <a class="nav-link text-white" href="/ecomm_app/api/v1/CartList/">Cart</a>
+            <a class="nav-link text-white" href="/api/v1/CartList/">Cart</a>
           </li>
           <li class="nav-item mx-2">
             <a class="nav-link text-white" href="{% url 'wishlist' %}">Wishlist</a>
           </li>
           <li class="nav-item mx-2">
-            <a class="nav-link text-white" href="/ecomm_app/api/v1/login/">Login</a>
+            <a class="nav-link text-white" href="/api/v1/login/">Login</a>
           </li>
           <li class="nav-item mx-2">
             <a class="nav-link text-white" href="{% url 'registration' %}">Registration</a>

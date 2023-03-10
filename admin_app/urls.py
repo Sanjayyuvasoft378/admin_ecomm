@@ -1,5 +1,7 @@
 from django.urls import path
 from admin_app import views
+from rest_framework.urlpatterns import format_suffix_patterns
+
 from django.contrib.auth import views as auth_view
 
 urlpatterns = [
@@ -21,6 +23,7 @@ urlpatterns = [
     path('api/v1/completed-order/',views.completedorder,name='completed-order'),
     path('api/v1/decliend-order/',views.deciendorder,name='decliend-order'),
     
+    path('image-request/', views.FileUploadView.as_view(), name = "image-request"),
     
     path('api/v1/deactivate-product/',views.deactivateproduct,name='deactivate-product'),
     path('api/v1/add-product/',views.addproduct,name='add-product'),
@@ -31,7 +34,7 @@ urlpatterns = [
     path('api/v1/coupons1/',views.coupons,name='coupons1'),
     
     path('api/v1/main-category/',views.MainCategoryAPI.as_view(),name='main-category'),
-    path('api/v1/main-category/<int:pk>',views.MainCategoryAPI.as_view(),name='main-category'),
+    path('api/v1/main-category/<int:id>/',views.MainCategoryAPI.as_view(),name='main-category-detail'),
     
     path('api/v1/sub-category/',views.SubCategoryAPI.as_view(),name='sub-category'),
     path('api/v1/sub-category/<int:pk>',views.SubCategoryAPI.as_view(),name='sub-category'),
@@ -63,4 +66,6 @@ urlpatterns = [
     path('api/v1/slider/',views.SliderAPI.as_view(),name='slider'),
     path('api/v1/slider/<int:pk>',views.SliderAPI.as_view(),name='slider'),
     
+    path('contact-us-list/',views.ContactUsListAPI.as_view(),name='contact-us-list'),
 ]
+urlpatterns = format_suffix_patterns(urlpatterns)

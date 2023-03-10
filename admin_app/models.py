@@ -1,17 +1,30 @@
 from django.db import models
 
+class File(models.Model):
+    file = models.FileField(blank=False, null=False)
+
+    def __str__(self):
+        return self.file
+
 class MainCategory(models.Model):
     category_name = models.CharField(max_length=200)
     description = models.CharField(max_length=255)
-    cate_image = models.ImageField(upload_to='media/',max_length=255)
+    cate_image = models.FileField(blank=False, null=False)
     def __str__(self):
         return self.category_name
+    
+class Posts(models.Model):
+    image = models.FileField(blank=False, null=False)
+    title = models.CharField(max_length=254)
+    description = models.CharField(max_length=254)
+    def __str__(self):
+        return self.title
 
 class SubCategory(models.Model):
     main_category_id = models.ForeignKey(MainCategory, on_delete=models.CASCADE)
     category_name = models.CharField(max_length=100)
     description = models.CharField(max_length=100)
-    image = models.ImageField(upload_to='subcategory')
+    image = models.FileField(blank=False, null=False)
 
     def __str__(self):
         return self.category_name
@@ -21,7 +34,7 @@ class ChildCategory(models.Model):
     sub_category_id = models.ForeignKey(SubCategory, on_delete=models.CASCADE)
     category_name = models.CharField(max_length=100)
     description = models.CharField(max_length=100)
-    image = models.ImageField(upload_to='subcategory')
+    image = models.FileField(blank=False, null=False)
 
     def __str__(self):
         return self.category_name
@@ -49,13 +62,7 @@ class Staff(models.Model):
 
     # def __str__(self):
     #     return self.first_name
-    
-class Posts(models.Model):
-    image = models.ImageField(upload_to='Posts')
-    title = models.CharField(max_length=100)
-    description = models.TextField()
-    def __str__(self):
-        return self.title
+
     
 class Slider(models.Model):
     image = models.ImageField(upload_to='slider_image/')

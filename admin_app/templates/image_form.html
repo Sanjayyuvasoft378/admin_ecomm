@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+{% block 'main-content' %}
+    <input type="hidden" id="headerdata" value="CUSTOMER">
+    <div class="content-area">
+        <div class="mr-breadcrumb">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h4 class="heading">Contact Us List</h4>
+                    <ul class="links">
+                        <li>
+                            <a href="{% url 'dashboard' %}">Dashboard </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'contact-us-list' %}">Contact Us List</a>
+                        </li>
+                    </ul>
+                    <button type="button" class="btn btn-primary" style="float:right" data-toggle="modal" data-target="#exampleModal">Add New</button>
+
+                </div>
+            </div>
+        </div>
+        <div class="product-area">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="mr-table allproduct">
+                        <div class="alert alert-success validation" style="display: none;">
+                            <button type="button" class="close alert-close"><span>×</span></button>
+                                    <p class="text-left"></p> 
+                        </div> 
+                        <div class="table-responsive">
+                            <table id="geniustable" class="table table-hover dt-responsive" cellspacing="0" width="100%">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>file</th>
+                                    </tr>
+                                </thead>
+                                {% for i in obj %}
+                                <tbody>
+                                <tr>
+                                <th>{{ i.id }}</th>
+                                <th><img src="{{ i.file }}"></th>
+                                </tr>
+                                </tbody>
+                                {% endfor %}
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="modal1" aria-hidden="true">					
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+			<div class="submit-loader">
+				<img  src="https://product.geniusocean.com/geniuscart/assets/images/1564224329loading3.gif" alt="">
+			</div>
+			<div class="modal-header">
+				<h5 class="modal-title"></h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="modal1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+		<div class="modal-header d-block text-center">
+			<h4 class="modal-title d-inline-block">Confirm Delete</h4>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
+      <!-- Modal body -->
+      <div class="modal-body">
+		<p class="text-center">You are about to delete this Staff.</p>
+		<p class="text-center">Do you want to proceed?</p>
+      </div>
+      <!-- Modal footer -->
+      <div class="modal-footer justify-content-center">
+		<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+		<form action="" class="d-inline delete-form" method="POST">
+			<input type="hidden" name="_method" value="delete" />
+			<input type="hidden" name="_token" value="hETZnKikQsjo4ztPPSTSZ8YHOGz9GTxxf18c2mPJ">
+			<button type="submit" class="btn btn-danger">Delete</button>
+		</form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add files</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+     <!DOCTYPE html>
+<html>
+ 
+  <body>
+    <form method="POST" action="{% url 'image-request' %}" enctype="multipart/form-data">
+      <div class="formcontainer">
+      <div class="container">
+        <label for="file"><strong>File</strong></label><br>
+        <input type="file" placeholder="Enter file" name="file" required><br>
+      </div>
+      <div class="container" style="background-color: #eee">
+      </div>
+        <button type="submit" class="btn btn-primary"><strong>Submit</strong></button>
+    </form>
+  </body>
+</html>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock 'main-content' %}

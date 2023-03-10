@@ -46,7 +46,7 @@
                                     <td>{{ i.title }}</td>
                                     <td>{{ i.description }}</td>
                                     <td>
-                                        <button type="button"  class="btn btn-danger"><a href="#">Delete</a></button>
+                                        <button type="button"  class="btn btn-danger"><a href="{% url 'posts' i.id %}">Delete</a></button>
                                        <button class="btn btn-primary"><a href="#">Edit</a></button></td>
                                 </tr>
                             </tbody>

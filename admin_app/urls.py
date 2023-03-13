@@ -34,7 +34,7 @@ urlpatterns = [
     path('api/v1/coupons1/',views.coupons,name='coupons1'),
     
     path('api/v1/main-category/',views.MainCategoryAPI.as_view(),name='main-category'),
-    path('api/v1/main-category/<int:id>/',views.MainCategoryAPI.as_view(),name='main-category-detail'),
+    path('api/v1/main-category/<int:pk>',views.MainCategoryAPI.as_view(),name='main-category-detail'),
     
     path('api/v1/sub-category/',views.SubCategoryAPI.as_view(),name='sub-category'),
     path('api/v1/sub-category/<int:pk>',views.SubCategoryAPI.as_view(),name='sub-category'),

@@ -38,27 +38,27 @@
 									<thead>
 										<tr>
 											<th>image</th>
-											<th>main_category_id</th>
-											<th>sub_category_id</th>
+											{% comment %} <th>main_category_id</th>
+											<th>sub_category_id</th> {% endcomment %}
 											<th>product_name</th>
 											<th>price</th>
 											<th>qty</th>
 											<th>description</th>
-											<th>Action</th>
+											<th width="20%">Action</th>
 										</tr>
 									</thead>
 									{% for data in get_data %}
 									<tbody>
 									<tr>
-									<td><img src="{{ data.image }}"></td>
-									<td>{{ data.main_category_id }}</td>
-									<td>{{ data.sub_category_id }}</td>
-									<td>{{ data.product_name }}</td>
-									<td>{{ data.price }}</td>
+									<td><img src="{{ data.product_image }}"></td>
+									{% comment %} <td>{{ data.main_category_id }}</td>
+									<td>{{ data.sub_category_id }}</td> {% endcomment %}
+									<td>{{ data.title }}</td>
+									<td>{{ data.discount_price }}</td>
 									<td>{{ data.qty }}</td>
 									<td>{{ data.description }}</td>
                             <td>
-                              <button id="delete_modal" type="button"  class="btn btn-danger" data-toggle="modal" data-target="#delete_modal"><a href="">Delete</a></button>
+                              <button id="delete_modal" type="button"  class="btn btn-danger" data-toggle="modal" data-target="#delete_modal"><a href="/api/v1/product-detail/{{ data.id }}">Delete</a></button>
                              <button class="btn btn-primary"><a href="">Edit</a></button></td>
                             </tr>
 									{% endfor %}

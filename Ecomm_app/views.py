@@ -288,8 +288,8 @@ class Add_to_cartAPI(APIView):
 class ProfileView(View):
     def get(self, request):
         form = CustomerProfileForm()
-        return JsonResponse(form.data)
-        # return render(request,'app/profile.html',locals())
+        # return JsonResponse(form.data)
+        return render(request,'app/profile.html',locals())
     def post(self,request):
         form = CustomerProfileForm(request.POST)
         if form.is_valid():
@@ -312,6 +312,32 @@ def address(request):
     add = Customer.objects.filter(user = request.user)
     return render(request, 'app/address.html',locals())
 
+
+class UpdateAddress(View):
+    def get(self, request, pk):
+        add = Customer.objects.get(pk=pk)
+        form = CustomerProfileForm(instance=add)
+        return render(request, 'app/update_address.html',locals())
+    def post(self, request, pk):
+        form = CustomerProfileForm(request.POST)
+        if form.is_valid():
+            add = Customer.objects.get(pk=pk)
+            add.name = form.cleaned_data['name']
+            add.locality = form.cleaned_data['locality']
+            add.city = form.cleaned_data['city']
+            add.mobileNo = form.cleaned_data['mobileNo']
+            add.state = form.cleaned_data['state']
+            add.zipcode = form.cleaned_data['zipcode']
+            add.save()
+            messages.success(request,"congratulations! profile Update successfully")
+        else:
+            messages.warning(request,"Invalid Data")
+        return redirect("/api/v1/address/")
+
+
+
+
+
 ###########################################################
    
 class ProductAPI(APIView):
@@ -328,8 +354,8 @@ class ProductAPI(APIView):
         item = Product.objects.all()
         Serializer = ProductSerializer(item, many= True)
         return JsonResponse(Serializer.data, safe=False)
-    def delete(self, request, pk):
-        item = Product.objects.filter(pk=pk)
+    def delete(self, request, id):
+        item = Product.objects.filter(id=id)
         item.delete()
         return JsonResponse({"msg":"data delete succesfully"},safe=False)
     def put(self, request,pk):

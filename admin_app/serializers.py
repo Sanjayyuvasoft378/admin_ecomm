@@ -88,6 +88,7 @@ class ProductSerializer(serializers.ModelSerializer):
         fields = ['id','main_category_id','sub_category_id','product_name','description','image','price','qty']
 
 class CouponsSerializer(serializers.ModelSerializer):
+    amount = serializers.IntegerField()
     class Meta:
         model = Coupons
         fields = ['id','coupon_type','amount','used']

@@ -7,13 +7,13 @@ from django.contrib.auth import views as auth_view
 urlpatterns = [
     path('api/v1/add-to-cart-item/',views.add_to_cart_data.as_view(), name='add-to-cart-item'),
     path('api/v1/add-to-wish-item/',views.AddToWishlistAPI.as_view(), name='add-to-wish-item'),
-    path('api/v1/product/',views.ProductAPI.as_view(), name='product'),
-    path('api/v1/product/<int:pk>',views.ProductAPI.as_view(), name='product'),
+    path('api/v1/product-detail/',views.ProductAPI.as_view(), name='product-detail'),
+    path('api/v1/product-detail/<int:id>',views.ProductAPI.as_view(), name='product-detail'),
     path('api/v1/index/', views.index),
 #     path('api/v1/profile/', views.profileupdate),
     path('api/v1/about/', views.about),
     path('api/v1/contact/', views.contact),
-    path('api/v1/login/', views.CustomerLoginView.as_view(), name='login'),
+    path('api/v1/login1/', views.CustomerLoginView.as_view(), name='login1'),
     # path('api/v1/registrations/',views.registration),
     path('api/v1/category/<slug:val>', views.CategoryView.as_view(), name='category'),
     path('api/v1/categorytitle/<val>', views.CategoryTitle.as_view(), name='categorytitle'),
@@ -35,13 +35,22 @@ urlpatterns = [
     path('api/v1/wishlist/', views.WishlistAPI.as_view(), name='wishlist'),
     path('api/v1/add-to-wishlist/', views.AddToWishlistAPI.as_view(), name='add-to-wishlist'),
     path('api/v1/registrations/', views.CustomerRegistrationView.as_view(),name='registration'),
-    path('api/v1/accounts/login/', auth_view.LoginView.as_view(template_name='app/login.html',
+    path('api/v1/', auth_view.LoginView.as_view(template_name='app/login.html',
                                                         authentication_form=LoginForm), name='login'),
+                                                        
     path('api/v1/password-reset/',auth_view.PasswordResetView.as_view
          (template_name="app/password_reset.html",form_class=MyPasswordResetForm), name="password-reset"),
+    path('api/v1/password-change/',auth_view.PasswordChangeView.as_view
+        (template_name="app/password_change.html",form_class=MyPasswordChangeForm,
+        success_url='password-change-done'), name="password-change"),
+    path('api/v1/password-change-done/',auth_view.PasswordChangeDoneView.as_view
+        (template_name="app/password_change_done.html"), name="password-change-done"),
     
     path('api/v1/profile/',views.ProfileView.as_view(),name='profile'),
     path('api/v1/address/',views.address,name='address'),
+
+
+    path('api/v1/update-address/<int:pk>',views.UpdateAddress.as_view(),name='update-address'),
     
     path('api/v1/product-review/',views.ProductReviewAPI.as_view(),name='product-review'),
     path('api/v1/product-review/<int:pk>',views.ProductReviewAPI.as_view(),name='product-review'),

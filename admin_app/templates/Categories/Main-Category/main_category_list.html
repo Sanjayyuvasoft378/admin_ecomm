@@ -49,8 +49,8 @@
                                 <td >{{ main_data.description }}</td>
                                 <td>Active</td>
                                 <td>
-                                  <button class="btn btn-danger"><a href="{% url 'main-category-detail' main_data.id %}">Delete</a></button>
-                                  <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Edit</button>
+                                  <button class="btn btn-danger"><a href="{% url 'main-category' main_data.id %}">Delete</a></button>
+                                  <button class="btn btn-primary" data-toggle="modal" data-target="#editexampleModal">Edit</button>
                                 </td>
                               </tr>
                           </tbody>  
@@ -135,7 +135,7 @@
 				</div>
 			</div>
 
-<!-- Modal -->
+<!-- Add Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -146,32 +146,66 @@
         </button>
       </div>
       <div class="modal-body">
-     <!DOCTYPE html>
-<html>
- 
-  <body>
-    <form method="POST" action="{% url 'main-category' %}" enctype="multipart/form-data">
-
-      <div class="formcontainer">
-      <div class="container">
-        <label for="category_name"><strong>category_name</strong></label><br>
-        <input type="text" placeholder="Enter category_name" name="category_name" required><br>
-        <label for="description"><strong>description</strong></label><br>
-        <input type="text" placeholder="Enter description" name="description" required><br>
-        <label for="cate_image"><strong>cate_image (size cannot exceed 1 MB)</strong></label><br>
-        <input type="file" placeholder="cate_image" name="cate_image" accept="cate_image/jpeg, cate_image/png, cate_image/gif" required><br>
-      </div>
-      <div class="container" style="background-color: #eee">
-      </div>
-        <button type="submit" class="btn btn-primary"><strong>Submit</strong></button>
-    </form>
-  </body>
-</html>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
+      <!DOCTYPE html>
+      <html>
+        <body>
+          <form method="POST" action="{% url 'main-category' %}" enctype="multipart/form-data">
+            <div class="formcontainer">
+              <div class="container">
+                <label for="category_name"><strong>category_name</strong></label><br>
+                <input type="text" placeholder="Enter category_name" name="category_name" required><br>
+                <label for="description"><strong>description</strong></label><br>
+                <input type="text" placeholder="Enter description" name="description" required><br>
+                <label for="cate_image"><strong>cate_image (size cannot exceed 1 MB)</strong></label><br>
+                <input type="file" placeholder="cate_image" name="cate_image" accept="cate_image/jpeg, cate_image/png, cate_image/gif" required><br>
+              </div>
+              <button type="submit" class="btn btn-primary"><strong>Submit</strong></button>
+            </div>
+          </form>
+        </body>
+      </html>
     </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    </div>
+  </div>
+  </div>
+</div>
+
+<!-- Edit Modal -->
+<div class="modal fade" id="editexampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Update MainCategory</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <!DOCTYPE html>
+      <html>
+        <body>
+          <form method="PUT" action="{% url 'main-category' %}" enctype="multipart/form-data">
+            <div class="formcontainer">
+              <div class="container">
+                <label for="category_name"><strong>category_name</strong></label><br>
+                <input type="text" placeholder="Enter category_name" name="category_name" required><br>
+                <label for="description"><strong>description</strong></label><br>
+                <input type="text" placeholder="Enter description" name="description" required><br>
+                <label for="cate_image"><strong>cate_image (size cannot exceed 1 MB)</strong></label><br>
+                <input type="file" placeholder="cate_image" name="cate_image" accept="cate_image/jpeg, cate_image/png, cate_image/gif" required><br>
+              </div>
+              <button type="submit" class="btn btn-primary"><strong>Submit</strong></button>
+            </div>
+          </form>
+        </body>
+      </html>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    </div>
+  </div>
   </div>
 </div>
 {% endblock 'main-content' %}

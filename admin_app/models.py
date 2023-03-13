@@ -50,7 +50,7 @@ class Product(models.Model):
 
 class Coupons(models.Model):
     coupon_type = models.CharField(max_length=20)
-    amount = models.FloatField(max_length=20)
+    amount = models.IntegerField()
     used = models.CharField(max_length=20)
 
 class Staff(models.Model):

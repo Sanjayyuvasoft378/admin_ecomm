@@ -150,12 +150,19 @@ class CustomerListAPI(APIView):
         return render(request, 'customer_list.html',{"data":data})
         # return JsonResponse(Serializer.data, safe=False)
 
-# Create your views here.
 class MainCategoryAPI(APIView):
+    def delete(self, request,pk):
+        try:
+            pk = int(id)
+            item = MainCategory.objects.filter(id=pk)
+            item.delete()
+            return JsonResponse({"msg":"deleted"},safe=False,status=200)
+        except Exception as e:
+            return JsonResponse({"msg":"Internal server error {}".format(e)},safe=False,status=500)
     def get(self, request):
         item = MainCategory.objects.all()
         Serializer = MaincategorySerializer(item, many=True)
-        data=Serializer.data
+        data=Serializer.data    
         # return JsonResponse(Serializer.data,safe=False)
         return render(request, 'Categories/Main-Category/main_category_list.html',{"data":data})
         # return redirect('/api/v1/main-category',{"data":data})
@@ -184,24 +191,24 @@ class MainCategoryAPI(APIView):
         except Exception as e:
             return JsonResponse({"msg":"Internal server error {}".format(e)},safe=False, status=500)
     
-    def delete(self, request,id):
-        try:
-            id= int(id)
-            item = MainCategory.objects.filter(id=id)
-            item.delete()
-            import pdb; pdb.set_trace()
-            return JsonResponse({"msg":"deleted"},safe=False,status=200)
-        except Exception as e:
-            return JsonResponse({"msg":"Internal server error {}".format(e)},safe=False,status=500)
 
     def put(self, request,id):
         item = MainCategory.objects.get(id=id)
-        Serializer = MaincategorySerializer(instance=item, data=request.data)
-        if MainCategory.objects.filter(**request.data).exists():
-            raise serializers.ValidationError("category of this name already exists")
-        if Serializer.is_valid():
-            Serializer.save()
-            return JsonResponse({"msg":"category updated"},safe=False)
+        form = MainCatForm(request.POST, request.FILES)
+        if form.is_valid():
+            category_name = request.POST.get('category_name')
+            description = request.POST.get('description')
+            image = form.cleaned_data['image']
+            item = MainCategory(category_name=category_name, description=description, image=image)
+            
+            Serializer = MaincategorySerializer(instance=item, data=request.data)
+            if MainCategory.objects.filter(**request.data).exists():
+                raise serializers.ValidationError("category of this name already exists")
+            if Serializer.is_valid():
+                Serializer.save()
+                return JsonResponse({"msg":"category updated"},safe=False)
+            else:
+                return JsonResponse({"msg":"invalid form data"}, safe=False)
         else:
             return JsonResponse({"msg":"invalid form data"}, safe=False)
        
@@ -360,7 +367,9 @@ class ProductDeactivateAPI(APIView):
         
 class CouponsAPI(APIView):
     def post(self, request):
-        Serializer = CouponsSerializer(data=request.data)
+        data=request.data
+        Serializer = CouponsSerializer(data=data)
+        amount = int(data['amount'])
         if Coupons.objects.filter(**request.data).exists():
             raise serializers.ValidationError("category already exist")
         if Serializer.is_valid():

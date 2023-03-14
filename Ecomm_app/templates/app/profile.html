@@ -1,19 +1,19 @@
 {% extends 'app/base.html' %}
 {% load static %}
-{% block title %}Customer Registration{% endblock title %}
+{% block title %}Customer Profile{% endblock title %}
 {% block main-content %}
 <div class="container my-5">
   <div class="row">
-    <h3>welcome<span class="text-capitalize">{{request.user}}</span></h3>
+    <h3>Welcome<span class="text-capitalize"> {{request.user}}</span></h3>
 
     <div class="col-sm-2 border-end">
       <ul class="list-unstyled">
-        <li class="d-grid"><a href="{% url 'profile' %}" class="btn btn-primary">Profile</a></li>
+        <li class="d-grid"><a href="{% url 'profile' %}" class="btn btn-success">Profile</a></li><br>
         <li class="d-grid"><a href="{% url 'address' %}" class="btn btn-primary">Address</a></li>
       </ul>
     </div>
     <div class="col-sm-8 offset-sm-1">
-      <form action="" method="post">
+      <form action="" method="post" style="display:grid;height:38rem;">
         {% csrf_token %}
         {% for fm in form %}<br><br><br>
           {{fm.label_tag}} {{fm}} <small class="text-danger">{{fm.errors|striptags}}</small>

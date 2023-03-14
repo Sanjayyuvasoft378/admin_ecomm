@@ -29,8 +29,8 @@ def about(request):
 def contact(request):
     return render(request, "app/contact.html")
 
-def profileupdate(request):
-    return render(request, 'app/profile.html')
+# def profileupdate(request):
+#     return render(request, 'app/profile.html')
 
 def cartdata(request):
     return render(request, 'app/cartlist.html')
@@ -49,6 +49,7 @@ class CustomerRegistrationView(View):
         if form.is_valid():
             form.save()
             messages.success(request,"Congrats ! User Registration successfully")
+            return redirect('/api/v1/login1/')
         else:
             messages.warning(request,"Invalid Form Data !! please enter correct data....")
         return render(request,'app/registration.html',locals())
@@ -95,7 +96,7 @@ class CustomerLoginView(View):
 
 def logout_view(request):
     logout(request)
-    return redirect('/ecomm_app/login/')
+    return redirect('/api/v1/login/')
   
 class ContactusAPI(APIView):
     def post(self, request):
@@ -213,7 +214,8 @@ class orderlistapi(APIView):
         try:
             get_data = Order.objects.all()
             serializer = OrderSerializer(get_data, many = True)
-            return JsonResponse(serializer.data, safe=False)
+            return render(request, 'app/order_list.html',locals())
+            # return JsonResponse(serializer.data, safe=False)
         except Exception as e:
             return JsonResponse({"msg":"Internal server error {}".format(e)},safe=False)
       

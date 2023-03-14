@@ -1,0 +1,41 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Order List{% endblock %}
+{% block main-content %}
+    <div class="container my-5">
+        <div class="row">
+            <h3>Welcome <span class="text-capitalized">{{request.user}}</span></h3>
+            {% comment %} <div class="col-sm-2 border-end">
+                <ul class="list-unstyled">
+                    <li class="d-grid"><a href="{% url 'profile' %}" class="btn">Profile</a></li>
+                    <li class="d-grid"><a href="{% url 'address' %}" class="btn btn-primary">Address</a></li>
+                </ul>
+            </div> {% endcomment %}
+
+            <div class="col-sm-8 offset-sm-1">
+                <div class="row">
+                    {% for ad in get_data %}
+                        <div class="col-sm-6">
+                            <div class="card m-2">
+                                <div class="card-body">
+                                    <h3>Order {{forloop.counter}}</h3>
+                                    <p>Product Name : {{ad.product_title}}</p>
+                                    <p>Quantity : {{ad.qty}}</p>
+                                    <p>price: {{ad.price}}</p>
+                                    {% comment %} <p>City: {{ad.city}}</p>
+                                    <p>State: {{ad.state}}</p>
+                                    <p>Pincode: {{ad.zipcode}}</p> {% endcomment %}
+                                    {% comment %} <p class="text-center"><a href="{% url 'update-address' pk=ad.id %}" type="button" class = "btn btn-success">Update</a></p> {% endcomment %}
+                                </div>
+                            </div>
+                                {% comment %} <button class="btn btn-primary">Select</button>
+                                <button class="btn btn-danger">Remove</button> {% endcomment %}
+                        </div>   
+                    {% endfor %}
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock main-content %}
